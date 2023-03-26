@@ -26,6 +26,7 @@ from local l 	inner join pedido p on l.localID = p.localID
 				inner join detalle d on d.pedidoID = p.pedidoID
                 inner join producto pr on d.nombre_producto = pr.nombre_producto and d.medida = pr.medida
 where pr.nombre_tipo = "Comida"
+-- pr.nombre_tipo LIKE 'Comida'
 group by nombre_local;
 
 
