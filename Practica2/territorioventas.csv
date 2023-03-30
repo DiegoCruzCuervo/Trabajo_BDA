@@ -1,0 +1,11 @@
+TerritorioID,nombre_territorio,codigo_pais,nombre_pais,continente,ventas_anuales,ventas_ultimo_año
+1,Northwest,US,"United States","North America",7887186.7882,3298694.4938
+2,Northeast,US,"United States","North America",2402176.8476,3607148.9371
+3,Central,US,"United States","North America",3072175.1180,3205014.0767
+4,Southwest,US,"United States","North America",10510853.8739,5366575.7098
+5,Southeast,US,"United States","North America",2538667.2515,3925071.4318
+6,Canada,CA,Canada,"North America",6771829.1376,5693988.8600
+7,France,FR,France,Europe,4772398.3078,2396539.7601
+8,Germany,DE,Germany,Europe,3805202.3478,1307949.7917
+9,Australia,AU,Australia,Pacific,5977814.9154,2278548.9776
+10,"United Kingdom",GB,"United Kingdom",Europe,5012905.3656,1635823.3967
