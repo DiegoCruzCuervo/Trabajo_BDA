@@ -13,4 +13,4 @@ where exists ( 	select productoID
             
 -- Indices para el apartado 3
 create index index_cantidad on detallepedidos (cantidad);
-drop index index_cantidad on detallespedidos;
+drop index index_cantidad on detallepedidos;
