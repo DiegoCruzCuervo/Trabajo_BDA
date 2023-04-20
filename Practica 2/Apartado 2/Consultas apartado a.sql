@@ -10,3 +10,7 @@ where exists ( 	select productoID
 				from detallepedidos d
                 where p.productoID = d.productoID and d.cantidad > 5
 			);
+            
+-- Indices para el apartado 3
+create index index_cantidad on detallepedidos (cantidad);
+drop index index_cantidad on detallespedidos;
