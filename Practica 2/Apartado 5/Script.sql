@@ -36,9 +36,8 @@ group by ProductoId);
 
 -- Actualizacion
 start transaction;
-update detallepedidos
-set descuento_unitario=descuento_unitario+1
-where pedidoId in (select pedidoID
+
+select *
 from detallepedidos
 where  descuento_unitario > 0 and
 pedidoID in (select pedidoID
@@ -49,5 +48,32 @@ ProductoId in (select ProductoId
 from productos p inner join subcategoriaproducto sb on p.subcategoriaID=sb.subcategoriaID
 inner join categoriaproducto cp on sb.categoriaID=cp.categoriaID
 where cp.nombre_categoria='Bicicleta'
-group by ProductoId));
+group by ProductoId);
+
+update detallepedidos
+set descuento_unitario=descuento_unitario+0.01
+where descuento_unitario>0 and 
+pedidoID in (select pedidoID
+from pedidos
+where year(fecha_venta)=2023
+group by PedidoID) and
+ProductoId in (select ProductoId
+from productos p inner join subcategoriaproducto sb on p.subcategoriaID=sb.subcategoriaID
+inner join categoriaproducto cp on sb.categoriaID=cp.categoriaID
+where cp.nombre_categoria='Bicicleta'
+group by ProductoId);
+
+select *
+from detallepedidos
+where  descuento_unitario > 0 and
+pedidoID in (select pedidoID
+from pedidos
+where year(fecha_venta)=2023
+group by PedidoID) and
+ProductoId in (select ProductoId
+from productos p inner join subcategoriaproducto sb on p.subcategoriaID=sb.subcategoriaID
+inner join categoriaproducto cp on sb.categoriaID=cp.categoriaID
+where cp.nombre_categoria='Bicicleta'
+group by ProductoId);
+
 rollback;
