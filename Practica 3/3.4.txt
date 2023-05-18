@@ -1,0 +1,30 @@
+// Buscar las personas que tengan más de 50 años
+a) MATCH (a:Person) WHERE 2023-a.born>50 return a
+
+// Haz una consulta que muestre a todas las personas menores de 50 años que hayan actuado en al menos una película.
+b) MATCH (a:Person)-[:ACTED_IN]->(m:Movie) WHERE 2023-a.born>50 return a
+
+// Haz una consulta que muestre todas las relaciones que unen a una persona con otra persona sin importar la etiqueta que tengan.
+c) MATCH (a:Person)-[]-(b:Person) return a
+
+// Buscar las personas que han dirigido por lo menos 3 películas
+d) MATCH (a:Person)-[:DIRECTED]-(m:Movie) with a,count(m) as num where num >=3 return a
+
+// Haz una consulta que muestre todas las películas que han sido dirigidas por dos o más personas
+e) MATCH (m:Movie)-[:DIRECTED]-(a:Person) with m,count(a) as num where num >=2 return m
+
+// Haz una consulta que inserte un nodo con etiqueta Person en el grafo (da igual si los valores de los atributos son inventados, 
+// no tienes por qué poner tus datos personales si no quieres).
+f) CREATE (:Person{name: "Alejandro", born: "2002"})
+
+// Haz una consulta que cree una review (Etiqueta REVIEW) de una película de la base de datos a tu elección (usa el nodo Person creado en la pregunta anterior).
+g) CREATE (:Review{text: "Esta es la primera review de mi etiqueta"})
+
+// Define que el texto de la review tiene que ser único en la base de datos y no debe de permitir la creación de repetidos.
+h) CREATE CONSTRAINT FOR (a:Review) REQUIRE a.text IS UNIQUE
+
+// Eliminar la restricción que has creado anteriormente
+i) No funciona xd
+
+// Trasformar el modelo en grafo en un modelo tabular que devuelva una table con nombre, legación y nombre de la película ordenado por nombre de actor.
+j) MATCH (a:Person)-[:ACTED_IN]->(m:Movie) return a.name,m.title
